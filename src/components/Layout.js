@@ -1,32 +1,28 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { MDXProvider } from '@mdx-js/react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import React from "react"
+import PropTypes from "prop-types"
+import { MDXProvider } from "@mdx-js/react"
 
 const Layout = ({ children }) => {
-    return (
-        <MDXProvider
-            components={{
-                p: (props) => <p {...props} className="mt-4" />,
-            }}
-        >
-            <div
-                className="min-h-full grid"
-                style={{
-                    gridTemplateRows: 'auto 1fr auto',
-                }}
-            >
-                <Header />
-                <main>{children}</main>
-                <Footer />
-            </div>
-        </MDXProvider>
-    )
+  return (
+    <MDXProvider
+      components={{
+        p: (props) => <p {...props} />,
+        h1: (props) => <h1 {...props} />,
+        h2: (props) => <h2 {...props} />,
+        h3: (props) => <h3 {...props} />,
+        strong: (props) => <strong {...props} />,
+        a: (props) => <a {...props} />,
+        ul: (props) => <ul {...props} />,
+        blockquote: (props) => <div {...props} />,
+      }}
+    >
+      <main>{children}</main>
+    </MDXProvider>
+  )
 }
 
 Layout.propTypes = {
-    children: PropTypes.any,
+  children: PropTypes.any,
 }
 
 export default Layout
